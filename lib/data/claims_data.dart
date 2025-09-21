@@ -1,0 +1,51 @@
+final List<Map<String, String>> claimsData = [
+  {
+    "name": "Garima Behl",
+    "employee": "Frontend Developer",
+    "device": "iPhone 15",
+    "time": "2 days ago",
+    "emi": "₹ 5,991 / month",
+  },
+  {
+    "name": "Abhijeet Sawant",
+    "employee": "Frontend Developer",
+    "device": "iPhone 15",
+    "time": "2 days ago",
+    "emi": "₹ 6,451 / month",
+  },
+  {
+    "name": "Kabir Ali",
+    "employee": "Data Analyst",
+    "device": "iPhone 15",
+    "time": "2 days ago",
+    "emi": "₹ 5,991 / month",
+  },
+  {
+    "name": "Dev Mehta",
+    "employee": "FullStack ",
+    "device": "iPhone 15",
+    "time": "2 days ago",
+    "emi": "₹ 6,451 / month",
+  },
+  {
+    "name": "Ananya Rao",
+    "employee": "Backend Developer",
+    "device": "iPhone15",
+    "time": "2 days ago",
+    "emi": "₹ 5,991 / month",
+  },
+  {
+    "name": "Vikram Kapoor",
+    "employee": "Java Developer",
+    "device": "iPhone15",
+    "time": "2 days ago",
+    "emi": "₹ 5,991 / month",
+  },
+  {
+    "name": "Aryan Joshi",
+    "employee": "Web Developer",
+    "device": "Samsung Galaxy S23",
+    "time": "2 days ago",
+    "emi": "₹ 6,451 / month",
+  },
+];
