@@ -1,30 +1,22 @@
-# Stage 1: Build Flutter web app
-FROM cirrusci/flutter:stable AS build
+FROM ghcr.io/cirruslabs/flutter:stable
+
+# Create a non-root user
+RUN useradd -ms /bin/bash flutteruser
+
+# Give this user ownership of the Flutter SDK
+RUN chown -R flutteruser:flutteruser /sdks/flutter
+
+# Switch to the new user
+USER flutteruser
 
 WORKDIR /app
+COPY --chown=flutteruser:flutteruser . .
 
-# Copy everything
-COPY . .
-
-# Enable web support
-RUN flutter config --enable-web
+# Allow git safe directory
+RUN git config --global --add safe.directory /sdks/flutter
 
 # Get dependencies
 RUN flutter pub get
 
-# Build release version for web
-RUN flutter build web --release
-
-# Stage 2: Serve with Nginx
-FROM nginx:alpine
-
-# Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
-
-# Copy Flutter build to nginx html folder
-COPY --from=build /app/build/web /usr/share/nginx/html
-
-# Expose port 80
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Build web
+RUN flutter build web
